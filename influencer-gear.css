@@ -2,6 +2,7 @@ body
 {
     font-family: 'Poppins', sans-serif;
     margin: 3%;
+
     
 }
 
@@ -12,6 +13,15 @@ body
     font-size: 24px;
     font-weight: 700;
     display: inline-block;
+}
+#menu-bar
+{
+    left: 20px;
+    top: 20px;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    color: black;
 }
 nav li 
 {
@@ -68,10 +78,39 @@ nav ul
 }
 .top-part img
 {
-    width: 150%;
+    width: 50%;
     background-image: url(images/Circle\ design.svg);
     padding-left: 400px;
     margin-top: 150px;
+}
+.img-box .front,
+.img-box .back
+{
+    width: 60%;
+    height: 80%;
+    position: absolute;
+    transition: 2s;
+    backface-visibility: hidden;
+}
+.img-box .front
+{
+    transform: perspective(1000px) rotateY(0deg);
+    z-index: 2;
+}
+.img-box .back
+{
+    transform: perspective(1000px) rotateY(180deg);
+    z-index: 1;
+}
+.img-box:hover .front
+{
+    transform: perspective(1000px) rotateY(-180deg);
+    z-index: 2;
+}
+.img-box:hover .back
+{
+    transform: perspective(1000px) rotateY(0deg);
+    z-index: 1;
 }
 /* shop link sections style  */
 .shops
@@ -150,4 +189,84 @@ nav ul
     font-weight: 700;
     margin-top: 150px;
     margin-right: 70px;
+}
+/* last section style  */
+.last-section
+{
+    display: flex;
+}
+.last-part img
+{
+    width: 50%;
+}
+.last-part
+{
+     width: 60%;
+     border-radius: 10px; 
+}
+.last-part h2
+{
+    font-weight: bold;
+    font-size: 30px;
+}
+.last-part a
+{
+    text-decoration: none;
+    background-color: #E02C6D;
+    color: white;
+    padding: 10px 40px;
+    border-radius: 7px;
+}
+footer
+{
+    background-color: rgb(9, 13, 43);
+    color: white;
+}
+/* media-queries  */
+
+/* mobile  */
+@media (max-width:688px) 
+{
+ .page-title
+ {
+    text-align: center;
+    width: 100%;
+ }
+ .nav-bar
+ {
+     width: 100%;
+     text-align: left;
+ }
+ .nav-bar ul 
+ {
+     opacity: 0;
+     visibility: hidden;
+ }
+#menu-bar
+{
+   opacity: 1;
+   visibility: visible;
+ }
+#cart
+ {
+    right: 20px;
+    top: 20px;
+    position: absolute;
+ }
+ .top-part
+ {
+     grid-template-columns: repeat(1,1fr);
+  
+ }
+ .container
+ {
+     width: 100%;
+     flex-direction: column;
+ }
+ .top-part img
+ {
+    position: absolute;
+    width: 257px;
+    height: 257px;
+ }
 }
